@@ -12,7 +12,7 @@
     "dev": "IS_LOCAL=true ts-node src/app.ts"
   },
   "devDependencies": {
-    "@types/aws-serverless-express": "^3.3.5",
+    "@types/aws-lambda": "^8.10.93",
     "@types/jest": "^26.0.10",
     "@types/node": "10.17.27",
     "aws-cdk": "2.16.0",
@@ -24,7 +24,6 @@
   "dependencies": {
     "@slack/bolt": "^3.10.0",
     "aws-cdk-lib": "2.16.0",
-    "aws-serverless-express": "^3.4.0",
     "constructs": "^10.0.0",
     "source-map-support": "^0.5.16"
   }

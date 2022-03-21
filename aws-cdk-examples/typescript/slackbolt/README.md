@@ -29,8 +29,7 @@ cdk init
 
 # 依存ライブラリをインストール
 npm install @slack/bolt
-npm install aws-serverless-express
-npm install @types/aws-serverless-express@3.3.5 --save-dev
+npm install @types/aws-lambda --save-dev
 
 # 環境変数を設定
 export SLACK_SIGNING_SECRET=<your-signing-secret>
@@ -76,3 +75,6 @@ https://api.slack.com/apps/<アプリID>/oauth?
 * Scopes
   * chat:write
 
+## 参考資料
+
+* [AWS Lambda へのデプロイ](https://slack.dev/bolt-js/ja-jp/deployments/aws-lambda)

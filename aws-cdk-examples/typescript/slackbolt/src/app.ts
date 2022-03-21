@@ -1,25 +1,24 @@
-import { App, ExpressReceiver } from "@slack/bolt";
-import * as awsServerlessExpress from "aws-serverless-express";
-import { APIGatewayProxyEvent, Context } from "aws-lambda";
+import { App, AwsLambdaReceiver } from "@slack/bolt";
+import { APIGatewayProxyEvent, Context, Callback } from "aws-lambda";
 
-const processBeforeResponse = true;
-
-const expressReceiver = new ExpressReceiver({
+const awsLambdaReceiver = new AwsLambdaReceiver({
   signingSecret: process.env.SLACK_SIGNING_SECRET ?? "",
-  processBeforeResponse,
 });
+
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
-  receiver: expressReceiver,
-  processBeforeResponse,
+  // receiver: expressReceiver,
+  receiver: awsLambdaReceiver,
 });
 
-const server = awsServerlessExpress.createServer(expressReceiver.app);
-export const handler = (
+export const handler = async (
   event: APIGatewayProxyEvent,
-  context: Context
-): void => {
-  awsServerlessExpress.proxy(server, event, context);
+  context: Context,
+  callback: Callback,
+) => {
+  // awsServerlessExpress.proxy(server, event, context);
+  const handler = await awsLambdaReceiver.start();
+  return handler(event, context, callback);
 };
 
 app.message("hello", async ({ message, say }) => {

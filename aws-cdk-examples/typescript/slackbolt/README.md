@@ -69,6 +69,10 @@ https://api.slack.com/apps/<アプリID>/event-subscriptions?
 
 https://api.slack.com/apps/<アプリID>/oauth?
 
+* Request URL
+  * https://xxxxxxxxxx.execute-api.ap-northeast-1.amazonaws.com/prod/slack/events
+  * → slack/eventsを追加して設定する
+
 * Scopes
   * chat:write
 

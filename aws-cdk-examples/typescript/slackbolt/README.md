@@ -35,7 +35,7 @@ npm install @types/aws-lambda --save-dev
 export SLACK_SIGNING_SECRET=<your-signing-secret>
 export SLACK_BOT_TOKEN=xoxb-<your-bot-token>
 # デプロイのみ
-cdk deploy --require-approval never --profile <aws-configure-profile>
+cdk deploy --hotswap --require-approval never --profile <aws-configure-profile>
 # 変更監視 & デプロイ
 cdk watch --profile <aws-configure-profile>
 

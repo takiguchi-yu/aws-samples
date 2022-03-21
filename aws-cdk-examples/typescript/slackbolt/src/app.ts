@@ -19,9 +19,6 @@ export const handler = (
   event: APIGatewayProxyEvent,
   context: Context
 ): void => {
-  console.log("slack bolt proxy - aws-serverless-express");
-  console.log(event);
-  
   awsServerlessExpress.proxy(server, event, context);
 };
 
